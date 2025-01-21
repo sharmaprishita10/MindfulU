@@ -1,0 +1,53 @@
+{% extends "meditate/layout.html" %}
+
+{% block title %}
+    Courses | 
+{% endblock %}
+
+{% block script %}
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.course-div').forEach(div => {
+
+                // GET the enroller count
+                const course_id = div.dataset.id; 
+                fetch(`/enroll/${course_id}`)
+                .then(response => response.json())
+                .then(data => {
+                    const enrollers = data.enrollers;
+                    if(enrollers) {
+                        div.lastElementChild.lastElementChild.innerHTML = `Enrollers: ${data.enrollers}`;
+                    }
+                })
+                .catch(error => {
+                    console.log('Error', error);                 
+                });
+
+                // On click, view the specific course
+                div.onclick = () => {
+                    location.assign(`/course/${course_id}`);
+                };
+            }); 
+        });
+    </script>
+{% endblock %}
+
+{% block body %}
+    <h3 class="text-white">Courses</h3>
+    <div class="container">
+        {% for course in courses %}
+            <div class="course-div bg-light bg-opacity-75 row mt-3 p-3" data-id="{{ course.id }}">
+                <div class="col col-lg-3 col-sm-6">
+                    <img src="{{ course.image }}" alt="Course image" class="img-fluid" style="height:35vh;">
+                </div>
+                <div class="col col-lg-9 col-sm-6">
+                    <h2>{{ course.title }}</h2>
+                    <h5>{{ course.subtitle }}</h5>
+                    <p>Duration: {{ course.duration }} hrs</p>
+                    
+                    <span class="badge bg-warning text-dark"></span>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

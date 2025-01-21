@@ -1,0 +1,36 @@
+{% extends "meditate/layout.html" %}
+
+{% block title %}
+    Register | 
+{% endblock %}
+
+{% block body %}
+    <div class="d-flex justify-content-center">
+        <div class="vw-50 mb-5 p-4 mt-3 border bg-light bg-opacity-10 shadow" style="height:75vh" >
+            <h2 class="text-center text-white">Register</h2>
+
+            {% if message %}
+                <div class="alert alert-warning">{{ message }}</div>
+            {% endif %}
+
+            <form action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group mt-5">
+                    <input class="form-control" required autofocus type="text" name="username" placeholder="Username">
+                </div>
+                <div class="form-group my-3">
+                    <input class="form-control" required type="email" name="email" placeholder="Email Address">
+                </div>
+                <div class="form-group my-3">
+                    <input class="form-control" required type="password" name="password" placeholder="Password">
+                </div>
+                <div class="form-group my-3">
+                    <input class="form-control" required type="password" name="confirmation" placeholder="Confirm Password">
+                </div>
+                <input class="btn btn-primary" type="submit" value="Register">
+            </form>
+
+            <p class="fw-bold text-white">Already have an account? <a href="{% url 'login' %}" class="link-light">Log In here.</a></p>
+        </div>
+    </div>
+{% endblock %}

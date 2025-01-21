@@ -1,0 +1,68 @@
+{% extends "meditate/layout.html" %}
+
+{% block script %}
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('#program-intro').onclick = () => {
+                location.assign('/programs');
+            };
+
+            document.querySelector('#course-intro').onclick = () => {
+                location.assign('/courses');
+            };
+        });
+    </script>
+{% endblock %}
+
+{% block body %}
+
+    <!--Carousel-->
+    <div id="carouselExampleIndicators" class="carousel slide mt-3 container" data-bs-ride="carousel"> 
+        <!--Carousel indicators-->
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <!--Carousel slides-->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://wallpaperaccess.com/full/938445.jpg" class="d-block w-100" alt="programs" style="height:70vh">
+            <div class="carousel-caption d-md-block">
+                <h5>Programs</h5>
+                <p>Through Meditate, you can practice meditation in groups.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://wallpaperaccess.com/full/3401406.jpg" class="d-block w-100" alt="courses" style="height:70vh">
+            <div class="carousel-caption d-md-block">
+                <h5>Courses</h5>
+                <p>Learn and explore different traditional meditation practices through our various courses.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://www.serenitylanetherapy.com/wp-content/uploads/2019/01/backlit-beach-dawn-588561.jpg" class="d-block w-100" alt="about" style="height:70vh">
+            <div class="carousel-caption d-md-block">
+                <h5>Know Us More</h5>
+                <p>Go to our About section to know us more and do consider recommending.</p>
+            </div>
+          </div>
+        </div>
+        
+    </div>
+
+    <div class="container">
+        <div id="program-intro" class="bg-light bg-opacity-75 mt-4 text-center pt-5 px-3 rounded" style="height:50vh;">   <!--For programs-->
+            <h1>Programs</h1>
+            <p>Grow your self-awareness at work and life to unlock your full potential. 
+            Join our meditation programs to practice mindfulness at the comfort of your home 
+            as we offer daily, weekly and monthly programs along with timely workshops!</p>
+        </div>
+        <div id="course-intro" class="bg-light bg-opacity-75 mt-4 text-center pt-5 px-3 rounded" style="height:50vh;">   <!--For courses-->
+            <h1>Courses</h1>
+            <p>Learn to meditate and relax from the highly regarded individuals as they teach you about 
+            Tibetan Buddhisim, traditional practices and knowing your inner consciousness. 
+            Watch pre-recorded lectures and learn at your own pace.</p>
+        </div>
+    </div>
+{% endblock %}

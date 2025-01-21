@@ -1,0 +1,52 @@
+{% extends "meditate/layout.html" %}
+
+{% block title %}
+    Programs | 
+{% endblock %}
+
+{% block script %}
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.program-div').forEach(div => {
+
+                // GET the subscriber count
+                const prog_id = div.dataset.id; 
+                fetch(`/subscribe/${prog_id}`)
+                .then(response => response.json())
+                .then(data => {
+                    const subscribers = data.subscribers;
+                    if(subscribers) {
+                        div.lastElementChild.lastElementChild.innerHTML = `Subscribers: ${data.subscribers}`;
+                    }
+                })
+                .catch(error => {
+                    console.log('Error', error);                 
+                });
+
+                // On click, view the specific program
+                div.onclick = () => {
+                    location.assign(`/program/${prog_id}`);
+                };
+            }); 
+        });
+    </script>
+{% endblock %}
+
+{% block body %}
+    <h3 class="text-white">Programs</h3>
+    <div class="container">
+        {% for program in programs %}
+            <div class="program-div bg-light bg-opacity-75 row mt-3 p-3" data-id="{{ program.id }}">
+                <div class="col col-lg-3 col-sm-6">
+                    <img src="{{ program.image }}" alt="Program image" class="img-fluid" style="height:35vh;">
+                </div>
+                <div class="col col-lg-9 col-sm-6">
+                    <h2>{{ program.title }}</h2>
+                    <p>{{ program.days }}</p>
+                    <span class="badge bg-warning text-dark"></span>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
+{% endblock %}
