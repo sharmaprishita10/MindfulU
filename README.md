@@ -5,7 +5,7 @@ Meditate is an e-learning site where users can view and subscribe to various pro
 
 ### Description
 
-This is an e-learning platform where users can subscribe to programs and enroll in courses. Upon enrollment, they receive hypothetical Zoom links and study materials via email. Users can also submit and view reviews for programs, track their enrolled courses, and navigate easily using a back-to-top arrow for a seamless learning experience. 
+This is an e-learning platform where users can subscribe to programs and enroll in courses. Upon enrollment, they receive hypothetical Zoom links and study materials via email. Users can also submit and view reviews for programs, courses, and navigate easily using a back-to-top arrow for a seamless learning experience. 
 
 ### Getting Started
 
