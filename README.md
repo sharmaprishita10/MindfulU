@@ -1,6 +1,6 @@
-# Meditate
+# MindfulU
 
-Meditate is an e-learning site where users can view and subscribe to various programs and courses related to meditation.
+MindfulU is an e-learning site where users can view and subscribe to various programs and courses related to meditation.
 
 
 ### Description
